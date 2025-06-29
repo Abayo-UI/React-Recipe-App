@@ -1,0 +1,69 @@
+.home-container{
+  overflow-x: hidden;
+}
+
+.backToTop{
+  position: fixed;
+  right: 4px;
+  bottom: 2px;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+}
+
+.search {
+  box-shadow: 0 2px 8px 0 orange;
+  border: none;
+}
+
+.search:focus,.search:focus-visible {
+  outline: none !important;
+  box-shadow: 0 2px 12px 0 orange !important;
+  border: none;
+}
+
+.navbar-toggler:focus,.navbar-toggler:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+}
+
+.food-image{
+  height: 250px;
+  border-radius: 15px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.notfound-container{
+  height: 50vh;
+}
+
+.details-container{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.index{
+  min-height: 30px;
+  min-width: 40px;
+  background-color: orange;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 3px;
+}
+
+a{
+  text-decoration: none;
+}
