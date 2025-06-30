@@ -7,5 +7,8 @@ export default defineConfig({
   plugins: [react() , qrcode()],
   server:{
     port: 3000
+  },
+  server:{
+    historyApiFallback: true
   }
 })
