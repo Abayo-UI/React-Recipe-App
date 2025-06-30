@@ -1,16 +1,24 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { GlobalContext } from '../context';
+import ShowDropDown from './ShowDropDown';
 
 const Navbar = () => {
 
 
     const { searchParam, setSearchParam, handleSubmit } = useContext(GlobalContext);
+    const [ showDropDown, setShowDropDown ] = useState(false);
     const navigate = useNavigate();
+
+    function handleOnChange(e){
+     setSearchParam(e.target.value);
+     setShowDropDown(true)
+    }
 
     const onSearch = (e) => {
       e.preventDefault();
       handleSubmit();
+      setShowDropDown(false);
       navigate('/');
     };
 
@@ -36,17 +44,23 @@ const Navbar = () => {
               </li>
             </ul>
             <form class="d-flex" role="search" onSubmit={onSearch}>
+              <div>
               <input 
                 className="form-control me-2 search rounded-5" 
                 type="search" 
                 placeholder="Enter Items to search here" 
                 aria-label="Search"
                 value={searchParam}
-                onChange={(e)=> setSearchParam(e.target.value) }
+                onChange={(e)=> handleOnChange(e) }
               />
-              <button class="btn btn-outline-success btn-success text-light" type="submit">Search</button>
+              {showDropDown && <ShowDropDown showDropDown={showDropDown} setShowDropDown={setShowDropDown} />  }
+              </div>
+              <button class="btn btn-outline-success btn-success text-light" type="submit" style={{height:40}}>Search</button>        
             </form>
+            
           </div>
+          
+         
         </div>
       </nav>
     </div>

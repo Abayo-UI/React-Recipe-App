@@ -6,11 +6,19 @@ export default function GlobalState({children}){
     const [ searchParam, setSearchParam ] = useState("chicken");
     const [ loading, setLoading ] = useState(false);
     const [ recipeList, setRecipeList ] = useState([]);
+    const [ numberOfPages, setNumberOfPages ] = useState(0);
+    const [ pageNumbering, setPageNumbering ] = useState([])
     const [ filteredData, setFilteredData ] = useState(null);
     const [ favoriteList, setFavoritelist ] = useState(() => {
       const stored = localStorage.getItem('favoriteList');
       return stored ? JSON.parse(stored) : [];
     });
+
+    // Expose setters globally for ShowDropDown to use (not best practice, but quick fix for now)
+    if (typeof window !== 'undefined') {
+      window.setPageNumbering = setPageNumbering;
+      window.setNumberOfPages = setNumberOfPages;
+    }
 
     useEffect(() => {
       localStorage.setItem('favoriteList', JSON.stringify(favoriteList));
@@ -24,8 +32,11 @@ export default function GlobalState({children}){
             const data = await response.json();
             console.log(data)
 
-            if(data?.data?.recipes){
+            if (data?.data?.recipes) {
                 setRecipeList(data?.data?.recipes);
+                const pages = Math.ceil(data?.data?.recipes?.length / 10);
+                setNumberOfPages(pages);
+                setPageNumbering([...Array(pages)]);
                 setLoading(false);
             }
 
@@ -38,7 +49,7 @@ export default function GlobalState({children}){
 
 
     return(
-        <GlobalContext.Provider value={{searchParam, setSearchParam, handleSubmit, loading, recipeList, filteredData, setFilteredData, favoriteList, setFavoritelist}}>
+        <GlobalContext.Provider value={{searchParam, setSearchParam, handleSubmit, loading, recipeList, filteredData, setFilteredData, favoriteList, setFavoritelist, numberOfPages, pageNumbering, setPageNumbering, setNumberOfPages}}>
             { children }
         </GlobalContext.Provider>
     )

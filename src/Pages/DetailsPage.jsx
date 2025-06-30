@@ -50,8 +50,8 @@ const DetailsPage = () => {
   return (
     <div className="details-container">
       {filteredData?.data && (
-        <div className="card mb-3 col-lg-8" >
-          <img src={filteredData.data.recipe.image_url} className="card-img-top" alt={filteredData.data.recipe.title} style={{height:"25rem"}}/>
+        <div className="card mb-3 col-lg-6 col-">
+          <img src={filteredData.data.recipe.image_url} className="card-img-top" alt={filteredData.data.recipe.title} style={{height:"15rem"}}/>
           <div className="card-body">
             <h5 className="card-title">{filteredData.data.recipe.title}</h5>
           

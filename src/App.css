@@ -1,3 +1,22 @@
+#root, body, html {
+  height: 100%;
+  min-height: 100%;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-wrapper > main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
 .home-container{
   overflow-x: hidden;
 }
@@ -31,7 +50,7 @@
 }
 
 .food-image{
-  height: 250px;
+  height: 180px;
   border-radius: 15px;
 }
 
@@ -67,3 +86,39 @@
 a{
   text-decoration: none;
 }
+
+.InActivePage p {
+  margin: 0;
+  padding: 0;
+}
+
+.activePage p{
+  margin: 0;
+  padding: 0;
+}
+
+.InActivePage{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid orange;
+  display: inline-flex;
+}
+
+.activePage{
+  background-color: orange;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+   display: inline-flex;
+}
+

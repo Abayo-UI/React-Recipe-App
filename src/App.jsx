@@ -8,19 +8,23 @@ import Home from './Pages/Home';
 import Favorites from './Pages/Favorites';
 import DetailsPage from './Pages/DetailsPage';
 import NotFound from './Components/NotFound';
+import Footer from './Components/Footer';
+
 
 function App() {
-
   return (
-      <div>
-        <Navbar/>
+    <div className="app-wrapper">
+      <Navbar/>
+      <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/favorites" element={<Favorites/>}/>
           <Route path="/recipe-Item/:id" element={<DetailsPage/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
-      </div>
+      </main>
+      <Footer/>
+    </div>
   )
 }
 
