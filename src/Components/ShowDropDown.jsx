@@ -42,8 +42,8 @@ const ShowDropDown = ({ showDropDown, setShowDropDown }) => {
       style={{
         position: 'absolute',
         top: '110%', // just below the input, works for both desktop and mobile
-        left: 0,
-        width: '100%',
+        right: 0,
+        width: '90%',
         maxWidth: 400,
         zIndex: 2000,
         pointerEvents: 'auto',

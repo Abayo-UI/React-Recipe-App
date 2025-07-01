@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa';
 import { useParams } from 'react-router-dom'
 import { GlobalContext } from '../context';
+import ShareFeature from '../Components/ShareFeature';
+import DownloadIngredients from '../Components/DownloadIngredients';
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -10,6 +12,7 @@ const DetailsPage = () => {
   const [showAdded, setShowAdded] = useState(false);
 
   async function fetchSelectedItem(){
+    window.scrollTo(0,0)
     try{
        const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`);
        const data = await response.json();
@@ -70,6 +73,7 @@ const DetailsPage = () => {
               />
               {showAdded && <span className="text-success">{isFavorite ? 'Added to favorites' : 'Removed from favorites'}</span>}
             </div>
+            <ShareFeature id={id}/>
             <h6 className="card-title">Ingredients</h6>
             {filteredData.data.recipe.ingredients.map((ingredient, index) => (
               <div className="d-flex" key={index}>
@@ -77,6 +81,7 @@ const DetailsPage = () => {
                 <p className="card-text pt-2">{ingredient.quantity + " " + ingredient.unit + " " + ingredient.description}</p>
               </div>
             ))}
+                        <DownloadIngredients title={filteredData.data.recipe.title} ingredients={filteredData.data.recipe.ingredients}/>
             <p className="card-text">
             </p>
           </div>

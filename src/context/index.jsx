@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 export const GlobalContext = createContext(null);
 
 export default function GlobalState({children}){
-    const [ searchParam, setSearchParam ] = useState("chicken");
+    const [ searchParam, setSearchParam ] = useState("beef");
     const [ loading, setLoading ] = useState(false);
     const [ recipeList, setRecipeList ] = useState([]);
     const [ numberOfPages, setNumberOfPages ] = useState(0);

@@ -8,7 +8,7 @@ const Favorites = () => {
 
   return (
     <div className="container pt-4">
-      <h2 className="mb-4">Your Favorites</h2>
+      <h2 className="mb-4">You have {favoriteList.length} { favoriteList.length > 1 ? "favorites" : "favorite"}</h2>
       {(!favoriteList || favoriteList.length === 0) ? (
         <p>No favorites yet.</p>
       ) : (

@@ -14,7 +14,10 @@ const Footer = () => {
         <div className="container">
           <div className="row mb-3">
             <div className="col-md-4 mb-3 mb-md-0">
-              <h5>About Recipe App</h5>
+              <h5>
+                <img src="/favicon.ico" alt="Recipe App Icon" style={{width: 32, height: 32, marginRight: 10, verticalAlign: 'middle'}} />
+                About Recipe App
+              </h5>
               <p>
                 Discover, search, and save your favorite recipes!<br/>
                 Built with React &amp; Vite for fast, modern web experience.

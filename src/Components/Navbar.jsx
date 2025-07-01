@@ -30,7 +30,12 @@ const Navbar = () => {
     <div className="navbar-container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid" style={{backgroundColor:"orange", marginTop:"-10px", paddingBottom:"15px", paddingTop:"10px", marginBottom:"-20px"}}>
-          <NavLink to="/" className="text-decoration-none text-dark"><a class="navbar-brand">Recipe App</a></NavLink>
+          <NavLink to="/" className="text-decoration-none text-dark">
+            <a class="navbar-brand">
+              <img src="/favicon.ico" alt="Recipe App Icon" style={{width: 32, height: 32, marginRight: 10, verticalAlign: 'middle'}} />
+              Recipe App
+            </a>
+          </NavLink>
           <button class="navbar-toggler bg-success " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
