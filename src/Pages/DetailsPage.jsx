@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from 'react'
 import { FaHeart } from 'react-icons/fa';
 import { useParams } from 'react-router-dom'
@@ -5,23 +6,29 @@ import { GlobalContext } from '../context';
 import ShareFeature from '../Components/ShareFeature';
 import DownloadIngredients from '../Components/DownloadIngredients';
 
+
 const DetailsPage = () => {
   const { id } = useParams();
-  const { filteredData, setFilteredData, favoriteList, setFavoritelist } = useContext(GlobalContext);
+  const { filteredData, setFilteredData, favoriteList, setFavoritelist, loading } = useContext(GlobalContext);
   const [isFavorite, setIsFavorite] = useState(false);
   const [showAdded, setShowAdded] = useState(false);
+
 
   async function fetchSelectedItem(){
     window.scrollTo(0,0)
     try{
+       // Set loading true if not already handled globally
+       // setLoading(true); // Not needed, handled in context if you want
        const response = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`);
        const data = await response.json();
        setFilteredData(data);
+       // setLoading(false); // Not needed, handled in context if you want
        console.log(id)
        console.log(data);
     } 
     catch(e){
       console.log(e.message);
+      // setLoading(false); // Not needed, handled in context if you want
       return "An error message occured, please try again later."
     }
   }
@@ -50,9 +57,16 @@ const DetailsPage = () => {
     setFavoritelist(updatedList);
   };
 
+
   return (
     <div className="details-container">
-      {filteredData?.data && (
+      {loading ? (
+        <div className="d-flex justify-content-center mt-5">
+          <div className="spinner-border" role="status" style={{width:"5rem" , height:"5rem", color:"orange"}}>
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      ) : filteredData?.data && (
         <div className="card mb-3 col-lg-6 col-">
           <img src={filteredData.data.recipe.image_url} className="card-img-top" alt={filteredData.data.recipe.title} style={{height:"15rem"}}/>
           <div className="card-body">

@@ -1,7 +1,9 @@
 #root, body, html {
   height: 100%;
   min-height: 100%;
+  background: #fff8e1;
 }
+
 
 .app-wrapper {
   min-height: 100vh;
@@ -19,6 +21,7 @@ footer {
 
 .home-container{
   overflow-x: hidden;
+  background: #fff8e1;
 }
 
 .backToTop{
@@ -60,6 +63,7 @@ footer {
 
 .notfound-container{
   height: 50vh;
+  background: #fff8e1;
 }
 
 .details-container{
@@ -67,7 +71,9 @@ footer {
   display: flex;
   justify-content: center;
   padding: 10px;
+  background: #fff8e1;
 }
+
 
 .index{
   min-height: 30px;
@@ -119,6 +125,5 @@ a{
   justify-content: center;
   align-items: center;
   cursor: pointer;
-   display: inline-flex;
+  display: inline-flex;
 }
-

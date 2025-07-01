@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
+import { FaSearch } from 'react-icons/fa';
 import { GlobalContext } from '../context'
 
 const ShowDropDown = ({ showDropDown, setShowDropDown }) => {
-  const { recipeList, searchParam, setSearchParam, setFilteredData, setPageNumbering, setNumberOfPages } = useContext(GlobalContext);
+  const { recipeList, searchParam, setSearchParam, setFilteredData, setPageNumbering, setNumberOfPages, handleSubmit } = useContext(GlobalContext);
   if (!showDropDown || !searchParam) return null;
 
   // Filter and limit suggestions
@@ -23,8 +24,8 @@ const ShowDropDown = ({ showDropDown, setShowDropDown }) => {
   // When a suggestion is clicked, filter to only that recipe
   const handleSuggestionClick = (recipe) => {
     setSearchParam(recipe.title);
-    setFilteredData([recipe]);
-    setPageNumbering([0]);
+    setFilteredData([recipe]); //Sets the filtered data to an array containing only the selected recipe. We use [recipe] (an array) because elsewhere in our app, we expect filteredData to be an array
+    setPageNumbering([0]);//use [0] (an array with one element) because our pagination logic expects an array of page numbers.
     setNumberOfPages(1);
     setShowDropDown(false);
     if (document.activeElement) document.activeElement.blur();
@@ -33,10 +34,8 @@ const ShowDropDown = ({ showDropDown, setShowDropDown }) => {
   // Reset filteredData if user types or submits a new search
   React.useEffect(() => {
     setFilteredData(null);
-    // eslint-disable-next-line
   }, [searchParam]);
 
-  // Position dropdown absolutely below the input, and fix mobile overlap
   return (
     <div
       style={{
@@ -53,9 +52,14 @@ const ShowDropDown = ({ showDropDown, setShowDropDown }) => {
         className="bg-white border rounded shadow"
         style={{ maxHeight: '220px', overflowY: 'auto', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }}
       >
-        {suggestions.length === 0 ? (
-          <div className="px-3 py-2 text-muted">No matches found</div>
-        ) : (
+        {suggestions.length === 0
+        ? (<div className="px-3 py-2 d-flex align-items-center gap-2" style={{ cursor: 'pointer' }} onClick={(e) => {
+            handleSubmit(e);
+            setShowDropDown(false);}}>
+            <FaSearch style={{color: '#ffa500', fontSize: '1.1em', marginRight:"5px"}} />
+            <span>{searchParam}</span>
+          </div>)
+        : (
           suggestions.map(recipe => (
             <div
               key={recipe.id}
@@ -63,6 +67,7 @@ const ShowDropDown = ({ showDropDown, setShowDropDown }) => {
               style={{ cursor: 'pointer' }}
               onMouseDown={() => handleSuggestionClick(recipe)}
             >
+              <FaSearch style={{color: '#ffa500', fontSize: '1.1em', marginRight:"5px"}} />
               {highlightMatch(recipe.title)}
             </div>
           ))

@@ -1,12 +1,12 @@
-import React, { useContext, useEffect,useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../context';
 import ShowDropDown from './ShowDropDown';
 
 const Navbar = () => {
 
 
-    const { searchParam, setSearchParam, handleSubmit } = useContext(GlobalContext);
+    const { searchParam, setSearchParam, handleSubmit } = useContext(GlobalContext); //destructuring the props of our GlobalContext
     const [ showDropDown, setShowDropDown ] = useState(false);
     const navigate = useNavigate();
 
@@ -62,10 +62,7 @@ const Navbar = () => {
               </div>
               <button class="btn btn-outline-success btn-success text-light" type="submit" style={{height:40}}>Search</button>        
             </form>
-            
           </div>
-          
-         
         </div>
       </nav>
     </div>

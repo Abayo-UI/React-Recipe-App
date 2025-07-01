@@ -32,11 +32,11 @@ const Home = () => {
       { !loading 
         ? displayList.length === 0
         ? <div  className="text-center mt-5" ><h2> Recipe Not Found.</h2><p>Try seraching another recipe</p></div>
-        : <div className="row gap-0 row-gap-3">
+        : <div className="row g-2">
          { 
          ( displayList && displayList.length > 0 ) 
           && displayList.slice(startIndex, endIndex || null).map( (item) => (
-            <div className="col-lg-4 col-md-6 col-12 px-4" key={item.id}>
+            <div className="col-lg-3 col-md-4 col-sm-6 col-12 px-1" key={item.id}>
                 <RecipeItem item={item} />
             </div>
           ))

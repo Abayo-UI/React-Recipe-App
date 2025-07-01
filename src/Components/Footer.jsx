@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="col-md-4 mb-3 mb-md-0">
               <h5>Contact</h5>
               <p>
-                Email: <a href="mailto:abayo@example.com" className="text-warning">abayo@example.com</a><br/>
+                Email: <a href="mailto:leslie2000abayo@example.com" className="text-warning">abayo@gmail.com</a><br/>
                 Twitter: <a href="https://twitter.com/abayodev" target="_blank" rel="noopener noreferrer" className="text-warning">@abayodev</a><br/>
                 GitHub: <a href="https://github.com/Abayo-UI" target="_blank" rel="noopener noreferrer" className="text-warning">abayo</a>
               </p>
