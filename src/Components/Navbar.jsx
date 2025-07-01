@@ -23,7 +23,7 @@ const Navbar = () => {
     };
 
     useEffect(()=> {
-        setSearchParam("chicken")
+        setSearchParam("beef")
         handleSubmit()
       }, [])
   return (
