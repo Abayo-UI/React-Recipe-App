@@ -4,11 +4,9 @@ import { qrcode } from 'vite-plugin-qrcode'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react() , qrcode()],
+  plugins: [ react() , qrcode() ],
   server:{
-    port: 3000
-  },
-  server:{
+    port: 3000,
     historyApiFallback: true
   }
 })
