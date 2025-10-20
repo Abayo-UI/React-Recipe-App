@@ -52,10 +52,58 @@ footer {
   border: none;
 }
 
+/* Use an aspect-ratio to keep images proportional and avoid overly tall cards */
 .food-image{
-  height: 180px;
-  border-radius: 15px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0; /* rounded top corners only */
+  aspect-ratio: 16 / 9;
+  display: block;
 }
+
+.recipe-card {
+  padding: 0.35rem;
+}
+
+/* Make cards more balanced and avoid feeling squeezed */
+.home-container .row {
+  --bs-gutter-x: 0.75rem;
+  --bs-gutter-y: 0.75rem;
+}
+
+/* Cap card height on larger screens so they don't stretch indefinitely */
+@media (min-width: 768px) {
+  .recipe-card .card {
+    max-height: 420px; /* prevents cards from becoming too tall */
+  }
+}
+
+@media (min-width: 1200px) {
+  .recipe-card .card {
+    max-height: 460px;
+  }
+}
+
+/* Ensure card text wraps and buttons align */
+.recipe-card .card-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Ensure card body doesn't force extra height unnecessarily */
+.recipe-card .card-body{
+  padding: 0.75rem;
+}
+
+/* Keep the card button visible and the body compact */
+.recipe-card .card .mt-auto{
+  margin-top: 0.6rem;
+}
+
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
