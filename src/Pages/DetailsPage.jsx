@@ -23,8 +23,6 @@ const DetailsPage = () => {
        const data = await response.json();
        setFilteredData(data);
        // setLoading(false); // Not needed, handled in context if you want
-       console.log(id)
-       console.log(data);
     } 
     catch(e){
       console.log(e.message);

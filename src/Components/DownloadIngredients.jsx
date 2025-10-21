@@ -1,7 +1,7 @@
-import React from 'react';
 import jsPDF from 'jspdf';
 
 const DownloadIngredients = ({ title, ingredients }) => {
+  
   const handleDownload = () => {
     const doc = new jsPDF();
     doc.setFontSize(16);
