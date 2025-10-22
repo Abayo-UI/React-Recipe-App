@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
           <hr style={{background: '#ffa500', opacity: 0.3}}/>
           <div>
-            Recipe App &copy; {new Date().getFullYear()} &mdash; Built with React &amp; Vite<br/>
+            Recipe App &copy; 2024 - {new Date().getFullYear()} &mdash; Built with React &amp; Vite<br/>
             Developed by Abayo
           </div>
         </div>
